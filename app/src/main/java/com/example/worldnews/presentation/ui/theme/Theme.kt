@@ -1,4 +1,4 @@
-package com.example.worldnews.ui.theme
+package com.example.worldnews.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

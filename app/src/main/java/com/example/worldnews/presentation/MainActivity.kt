@@ -1,4 +1,4 @@
-package com.example.worldnews
+package com.example.worldnews.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.worldnews.ui.theme.WorldNewsTheme
+import com.example.worldnews.presentation.ui.theme.WorldNewsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
