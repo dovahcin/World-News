@@ -4,6 +4,8 @@ import com.example.worldnews.domain.repository.NewsRepository
 
 class GetByCategoryAndLanguageAndCountryAndDateUseCase(
     private val newsRepository: NewsRepository
-) : NewsUseCase( { category, language, country, date, _ ->
-    newsRepository.getByCategoryAndLanguageAndCountryAndDate(category, language, country, date)
+) : NewsUseCase( { newsAttendants ->
+    newsRepository.getByCategoryAndLanguageAndCountryAndDate(
+        newsAttendants.category, newsAttendants.language, newsAttendants.country, newsAttendants.date
+    )
 })

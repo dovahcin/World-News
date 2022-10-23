@@ -4,6 +4,6 @@ import com.example.worldnews.domain.repository.NewsRepository
 
 class GetNewsByKeyword(
     private val newsRepository: NewsRepository
-) : NewsUseCase({_, _, _, date, keyword ->
-    newsRepository.getByKeywordOnDate(keyword, date)
+) : NewsUseCase({ newsAttendants ->
+    newsRepository.getByKeywordOnDate(newsAttendants.keyword, newsAttendants.date)
 })

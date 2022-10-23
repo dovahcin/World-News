@@ -2,6 +2,7 @@ package com.example.worldnews.domain.usecase
 
 import com.example.worldnews.common.Resource
 import com.example.worldnews.domain.model.News
+import com.example.worldnews.domain.model.NewsAttendants
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -11,23 +12,18 @@ import javax.inject.Inject
 
 open class NewsUseCase @Inject constructor(
     private val news: suspend (
-        category: String,
-        language: String,
-        country: String,
-        date: String,
-        keyword: String
+        NewsAttendants
     ) -> List<News>,
 ) {
     open suspend operator fun invoke(
-        category: String = "",
-        language: String = "",
-        country: String = "",
-        date: String = "",
-        keyword: String = ""
+        newsAttendants: NewsAttendants
     ) = flow {
         try {
-            emit(Resource.Loading())
-            emit(Resource.Success(news.invoke(category, language, country, date, keyword)))
+            emit(Resource.Success(news.invoke(NewsAttendants(newsAttendants.category,
+                newsAttendants.language,
+                newsAttendants.country,
+                newsAttendants.date,
+                newsAttendants.keyword))))
         } catch (exception: HttpException) {
             emit(Resource.Error(message = exception.localizedMessage
                 ?: "Unexpected error has occurred."))
